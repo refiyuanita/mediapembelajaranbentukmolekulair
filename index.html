@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bentuk Molekul Air - Media Pembelajaran Interaktif 16:9</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons for Beautiful UI -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" xintegrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts: Inter & JetBrains Mono for clean reading -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 60%, #020617 100%);
+        }
+        /* Hide scrollbars but keep functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Custom scrollbar for left tab content to prevent layout shift */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 5px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(30, 41, 59, 0.5);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(59, 130, 246, 0.3);
+            border-radius: 99px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(59, 130, 246, 0.6);
+        }
+    </style>
+</head>
+<body class="min-h-screen text-slate-100 flex flex-col items-center justify-center p-3 sm:p-6 overflow-x-hidden selection:bg-blue-600 selection:text-white">
+
+    <!-- TOP CONTROL BAR (Simulator & Aspect Ratio Info) -->
+    <div class="w-full max-w-6xl mb-3 flex justify-between items-center px-4">
+        <div class="flex items-center gap-2">
+            <span class="flex h-2 w-2 relative">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <p class="text-[11px] font-mono tracking-wider text-emerald-400 uppercase font-semibold">Mode Monitor: 16:9 Landscape</p>
+        </div>
+        <div class="text-[11px] text-slate-400 flex items-center gap-2">
+            <i class="fa-solid fa-expand text-blue-400"></i>
+            <span>Sesuai untuk Proyektor & Smart TV Kelas</span>
+        </div>
+    </div>
+
+    <!-- MAIN 16:9 SMARTBOARD FRAME -->
+    <!-- Locks perfectly to 16:9 aspect ratio on lg (desktop) screens with fixed maximum resolution -->
+    <div class="w-full max-w-6xl lg:aspect-[16/9] bg-slate-900/90 backdrop-blur-lg rounded-2xl border-4 border-slate-800 shadow-2xl flex flex-col overflow-hidden relative">
+        
+        <!-- Header / Bingkai Atas Layar Interaktif -->
+        <header class="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-b border-slate-800/80 px-6 py-3 flex justify-between items-center shrink-0 z-10">
+            <div class="flex items-center gap-3">
+                <div class="bg-gradient-to-br from-blue-500 to-indigo-600 text-white p-2.5 rounded-xl shadow-lg shadow-blue-500/20">
+                    <i class="fa-solid fa-wand-magic-sparkles text-lg"></i>
+                </div>
+                <div>
+                    <h1 class="text-sm sm:text-base font-extrabold tracking-tight text-white flex items-center gap-2">
+                        BENTUK MOLEKUL AIR (H₂O)
+                        <span class="text-[10px] bg-blue-500/10 text-blue-400 px-2.5 py-0.5 rounded-full font-bold border border-blue-500/20 uppercase tracking-widest">Fase F Kelas XI</span>
+                    </h1>
+                    <p class="text-[10px] text-slate-400 font-medium">Teori Domain Elektron & Pembuktian Geometri 3D Interaktif</p>
+                </div>
+            </div>
+            
+            <!-- Metadata Penyusun (Refi Yuanita, S.Pd. - SMAN 1 Teluk Sebong) -->
+            <div class="text-right flex items-center gap-3 bg-slate-950/60 py-1 px-3.5 rounded-full border border-slate-800">
+                <div class="text-right">
+                    <p class="text-[10px] text-slate-400 font-medium">Penyusun:</p>
+                    <p class="text-xs text-blue-400 font-bold">Refi Yuanita, S.Pd.</p>
+                </div>
+                <div class="h-6 w-[1px] bg-slate-800"></div>
+                <p class="text-[11px] text-slate-300 font-semibold">SMAN 1 Teluk Sebong</p>
+            </div>
+        </header>
+
+        <!-- SPLIT LAYOUT (50% Left Content, 50% Right 3D Frame) -->
+        <div class="flex-1 grid grid-cols-1 lg:grid-cols-2 overflow-hidden h-full">
+            
+            <!-- LEFT PANEL: Navigation Tabs & Content Scrolling -->
+            <div class="flex flex-col border-r border-slate-800/80 h-full overflow-hidden bg-slate-950/30">
+                <!-- Navigation Tab Bar -->
+                <nav class="flex border-b border-slate-800/80 p-2 bg-slate-950/50 gap-1.5 shrink-0">
+                    <button onclick="switchTab('tujuan')" id="btn-tujuan" class="tab-btn flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-2 bg-blue-600 text-white shadow-md shadow-blue-900/30">
+                        <i class="fa-solid fa-bullseye text-sm"></i> TUJUAN
+                    </button>
+                    <button onclick="switchTab('materi')" id="btn-materi" class="tab-btn flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all text-slate-400 hover:text-slate-200 hover:bg-slate-800 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-book-open text-sm"></i> MATERI
+                    </button>
+                    <button onclick="switchTab('soal')" id="btn-soal" class="tab-btn flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all text-slate-400 hover:text-slate-200 hover:bg-slate-800 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-clipboard-question text-sm"></i> EVALUASI (KUIS)
+                    </button>
+                </nav>
+
+                <!-- Scrollable Tab Content Container -->
+                <div class="flex-1 overflow-y-auto p-5 custom-scrollbar space-y-4">
+                    
+                    <!-- TAB 1: TUJUAN PEMBELAJARAN -->
+                    <div id="tab-tujuan" class="tab-content block space-y-4">
+                        <div class="bg-gradient-to-br from-blue-950/40 via-indigo-950/20 to-slate-950 p-5 rounded-xl border border-blue-900/30 shadow-inner">
+                            <h2 class="text-base font-bold text-blue-400 mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-graduation-cap"></i> Capaian & Tujuan Pembelajaran
+                            </h2>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                                Berdasarkan kurikulum merdeka Fase F, peserta didik diharapkan mampu memahami teori domain elektron dan memvisualisasikan bagaimana susunan ruang atom-atom di dalam suatu senyawa kimia secara nyata.
+                            </p>
+                            
+                            <!-- Alur Tujuan Pembelajaran -->
+                            <div class="space-y-3">
+                                <div class="flex gap-3 items-start bg-slate-900/40 p-2.5 rounded-lg border border-slate-800/60">
+                                    <div class="w-6 h-6 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-xs text-blue-400 font-bold shrink-0">1</div>
+                                    <p class="text-xs text-slate-300">Menentukan jumlah domain elektron ikatan (PEI) dan bebas (PEB) pada molekul air ($H_2O$) secara tepat.</p>
+                                </div>
+                                <div class="flex gap-3 items-start bg-slate-900/40 p-2.5 rounded-lg border border-slate-800/60">
+                                    <div class="w-6 h-6 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-xs text-blue-400 font-bold shrink-0">2</div>
+                                    <p class="text-xs text-slate-300">Menganalisis tipe molekul ($AX_2E_2$) dan menyimpulkan pengaruh pasangan bebas terhadap penyempitan sudut ikatan.</p>
+                                </div>
+                                <div class="flex gap-3 items-start bg-slate-900/40 p-2.5 rounded-lg border border-slate-800/60">
+                                    <div class="w-6 h-6 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-xs text-blue-400 font-bold shrink-0">3</div>
+                                    <p class="text-xs text-slate-300">Memvalidasi visualisasi bentuk molekul Bengkok (Bent/Bentuk V) melalui simulasi interaktif 3D/AR secara aktif.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Petunjuk Eksplorasi Layar 16:9 -->
+                        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 text-xs text-slate-400 space-y-2">
+                            <h3 class="font-bold text-slate-200 flex items-center gap-1.5">
+                                <i class="fa-solid fa-compass text-blue-400"></i> Petunjuk Eksplorasi Dua Layar:
+                            </h3>
+                            <ul class="list-disc pl-4 space-y-1">
+                                <li><strong>Layar Kiri:</strong> Digunakan untuk meninjau materi teori & menjawab soal-soal evaluasi formatif.</li>
+                                <li><strong>Layar Kanan (Simulasi):</strong> Geser, putar, dan cubit (zoom) molekul air 3D untuk melihat ikatan dan awan elektron secara jelas di ruang virtual.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- TAB 2: URAIAN MATERI -->
+                    <div id="tab-materi" class="tab-content hidden space-y-4">
+                        <div class="border-l-4 border-blue-500 pl-3 py-0.5">
+                            <h2 class="text-base font-extrabold text-white">Analisis Teori Bentuk Molekul Air</h2>
+                            <p class="text-[11px] text-slate-400">Mempelajari fenomena pembengkokan molekul berdasarkan Teori VSEPR</p>
+                        </div>
+
+                        <!-- Sub-materi 1 -->
+                        <div class="bg-slate-900/40 p-4 rounded-xl border border-slate-800/80 space-y-2">
+                            <h3 class="text-xs font-bold text-blue-400 uppercase tracking-wider flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> 1. Konfigurasi & Elektron Valensi
+                            </h3>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                Molekul air terbentuk dari 1 Atom Oksigen (<sub>8</sub>O) dan 2 Atom Hidrogen (<sub>1</sub>H). 
+                                Konfigurasi elektron Oksigen adalah <strong>1s² 2s² 2p⁴</strong> (memiliki <strong>6 elektron valensi</strong>). Atom O membutuhkan 2 elektron lagi untuk mencapai kestabilan oktet (8 elektron) dengan berbagi elektron bersama atom H.
+                            </p>
+                        </div>
+
+                        <!-- Sub-materi 2 (Kalkulasi PEI & PEB) -->
+                        <div class="bg-slate-900/40 p-4 rounded-xl border border-slate-800/80 space-y-2">
+                            <h3 class="text-xs font-bold text-blue-400 uppercase tracking-wider flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> 2. Jumlah Domain & Notasi VSEPR
+                            </h3>
+                            <div class="grid grid-cols-2 gap-2 text-center my-1.5">
+                                <div class="bg-slate-950/40 p-2 rounded-lg border border-slate-800/50">
+                                    <div class="text-[10px] text-slate-400">Ikatan (PEI)</div>
+                                    <div class="text-base font-extrabold text-white">2 Pasang</div>
+                                </div>
+                                <div class="bg-slate-950/40 p-2 rounded-lg border border-slate-800/50">
+                                    <div class="text-[10px] text-slate-400">Bebas (PEB)</div>
+                                    <div class="text-base font-extrabold text-emerald-400">2 Pasang</div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                Sesuai rumus rumus domain elektron, diperoleh rumus tipe molekul <strong class="text-blue-300 font-mono">AX₂E₂</strong>. Total terdapat 4 domain elektron di sekitar atom pusat yang secara dasar mengadopsi susunan geometri tetrahedral.
+                            </p>
+                        </div>
+
+                        <!-- Sub-materi 3 (Sudut & Geometri) -->
+                        <div class="bg-slate-900/40 p-4 rounded-xl border border-slate-800/80 space-y-2">
+                            <h3 class="text-xs font-bold text-blue-400 uppercase tracking-wider flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> 3. Penyebab Bentuk Bengkok / V
+                            </h3>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                Karena kekuatan tolakan pasangan bebas lebih besar (<strong class="text-amber-400">PEB-PEB > PEB-PEI > PEI-PEI</strong>), maka dua pasang elektron bebas mendesak ikatan O-H ke bawah. 
+                                Sudut ikatan tetrahedral ideal yang semulanya $109.5^\circ$ menyusut drastis menjadi <strong class="text-emerald-400 font-bold">$104.5^\circ$</strong>, menghasilkan struktur asimetris polar berbentuk <strong class="text-blue-400">Bentuk V (Bengkok / Bent)</strong>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- TAB 3: EVALUASI (10 MULTIPLE CHOICE QUESTIONS) -->
+                    <div id="tab-soal" class="tab-content hidden space-y-3">
+                        
+                        <!-- Mini Stats Header -->
+                        <div class="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80 flex justify-between items-center text-xs">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-question text-blue-400"></i>
+                                <span class="font-bold text-white">Latihan Pemahaman Formatif</span>
+                            </div>
+                            <div class="bg-blue-500/10 text-blue-400 px-2.5 py-1 rounded-md font-mono font-bold border border-blue-500/20">
+                                Soal: <span id="quiz-progress">1 / 10</span>
+                            </div>
+                        </div>
+
+                        <!-- Question & Choices Card -->
+                        <div id="quiz-container" class="bg-slate-950/30 p-4 rounded-xl border border-slate-800/80 flex flex-col justify-between min-h-[310px]">
+                            <div>
+                                <!-- Soal Text -->
+                                <p id="question-text" class="text-xs sm:text-sm font-semibold text-slate-200 leading-relaxed mb-4">
+                                    [Memuat soal...]
+                                </p>
+                                
+                                <!-- Opsi Jawaban (A-E) -->
+                                <div id="options-container" class="space-y-2">
+                                    <!-- Dinamis dari JavaScript -->
+                                </div>
+                            </div>
+
+                            <!-- Footer Navigasi Soal -->
+                            <div class="flex justify-between items-center pt-3 border-t border-slate-800/60 mt-4">
+                                <button id="btn-prev" onclick="prevQuestion()" class="px-3.5 py-1.5 text-xs font-bold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 disabled:opacity-40 transition-all">
+                                    <i class="fa-solid fa-angle-left mr-1"></i> Kembali
+                                </button>
+                                
+                                <button id="btn-submit-answer" onclick="checkAnswer()" class="px-4 py-1.5 text-xs font-bold rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white transition-all shadow-lg shadow-emerald-950/20">
+                                    Kunci Jawaban <i class="fa-solid fa-lock-open ml-1"></i>
+                                </button>
+                                
+                                <button id="btn-next" onclick="nextQuestion()" class="px-3.5 py-1.5 text-xs font-bold rounded-lg bg-blue-600 hover:bg-blue-500 text-white transition-all">
+                                    Lanjut <i class="fa-solid fa-angle-right ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Tampilan Skor Akhir (Tersembunyi Awal) -->
+                        <div id="score-screen" class="hidden bg-slate-950/90 p-6 rounded-xl border border-slate-800 text-center space-y-4">
+                            <div class="w-14 h-14 bg-gradient-to-tr from-amber-500 to-yellow-400 text-slate-950 rounded-full flex items-center justify-center mx-auto text-xl font-bold shadow-lg shadow-yellow-500/20">
+                                <i class="fa-solid fa-trophy"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-sm sm:text-base font-bold text-white">Hasil Evaluasi Belajar</h3>
+                                <p class="text-[11px] text-slate-400 mt-0.5">Analisis penguasaan konsep teori bentuk molekul air</p>
+                            </div>
+                            
+                            <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800/80 inline-block min-w-[160px]">
+                                <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Nilai Anda</span>
+                                <div id="final-score" class="text-3xl font-extrabold text-blue-400 mt-1">0 / 100</div>
+                            </div>
+
+                            <div class="flex justify-center gap-3 text-[11px] max-w-xs mx-auto">
+                                <div class="bg-emerald-950/30 border border-emerald-900/30 py-1.5 px-3 rounded-lg text-emerald-400 flex-1">
+                                    <span id="correct-count" class="font-bold">0</span> Benar
+                                </div>
+                                <div class="bg-red-950/30 border border-red-900/30 py-1.5 px-3 rounded-lg text-red-400 flex-1">
+                                    <span id="wrong-count" class="font-bold">0</span> Salah
+                                </div>
+                            </div>
+                            
+                            <button onclick="resetQuiz()" class="w-full max-w-xs py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold rounded-lg transition-all shadow-md">
+                                <i class="fa-solid fa-rotate-left mr-1"></i> Ulangi Kuis Formatif
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Footer Informasi Pengembang (Kiri) -->
+                <footer class="bg-slate-950/50 border-t border-slate-800/80 px-6 py-2.5 flex justify-between items-center text-[10px] text-slate-500 shrink-0">
+                    <span>Kimia SMA Fase F - SMAN 1 Teluk Sebong</span>
+                    <span class="font-mono">v1.2-169</span>
+                </footer>
+            </div>
+
+            <!-- RIGHT PANEL: 3D/AR Simulation Iframe Viewport -->
+            <!-- Fits perfectly in 16:9 on desktop and stands out on top/bottom in mobile -->
+            <div class="relative bg-slate-950 flex flex-col h-full min-h-[320px] lg:min-h-0">
+                <!-- Info Overlay Badge -->
+                <div class="absolute top-4 left-4 z-10 bg-slate-900/90 backdrop-blur-md px-3.5 py-2.5 rounded-xl border border-slate-800 shadow-xl pointer-events-none max-w-[260px]">
+                    <div class="flex items-center gap-2">
+                        <span class="flex h-2 w-2 relative">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                        </span>
+                        <p class="text-[11px] font-bold text-white">Assemblr Edu 3D Viewer</p>
+                    </div>
+                    <p class="text-[10px] text-slate-400 mt-1 leading-relaxed">
+                        Gunakan jari / mouse untuk memutar, membalik, dan menganalisis visual geometri air.
+                    </p>
+                </div>
+
+                <!-- Assemblr Edu Iframe Container -->
+                <div class="w-full h-full flex-1 relative bg-slate-950">
+                    <iframe 
+                        src="https://viewer.assemblrworld.com/Embed/-QGnzvkzkqsfkoVAZplz" 
+                        allow="camera; microphone; gyroscope; accelerometer; magnetometer; xr-spatial-tracking; fullscreen" 
+                        allowfullscreen
+                        class="w-full h-full border-0 absolute inset-0">
+                    </iframe>
+                </div>
+
+                <!-- AR Scan / Instruction Bottom Overlay -->
+                <div class="absolute bottom-4 right-4 z-10 bg-slate-900/95 backdrop-blur-sm px-3.5 py-2 rounded-xl border border-slate-800 shadow-lg pointer-events-none">
+                    <div class="flex items-center gap-2 text-[10px] text-slate-300">
+                        <i class="fa-solid fa-camera-retro text-emerald-400"></i>
+                        <span>Ketuk tombol AR di pojok kanan bawah Assemblr untuk mode realitas berimbuh!</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SCRIPT FOR NAVIGATION & INTERACTIVE EXAM ENGINE -->
+    <script>
+        // Tab Switch Logic
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(el => {
+                el.classList.add('hidden');
+                el.classList.remove('block');
+            });
+            document.getElementById('tab-' + tabName).classList.remove('hidden');
+            document.getElementById('tab-' + tabName).classList.add('block');
+
+            // Reset tab styles
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.className = "tab-btn flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all text-slate-400 hover:text-slate-200 hover:bg-slate-800 flex items-center justify-center gap-2";
+            });
+
+            // Set active styles
+            const activeBtn = document.getElementById('btn-' + tabName);
+            activeBtn.className = "tab-btn flex-1 py-2 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-2 bg-blue-600 text-white shadow-md shadow-blue-900/30";
+        }
+
+        // --- 10 HIGH QUALITY CHEMISTRY QUESTIONS ---
+        const quizQuestions = [
+            {
+                q: "Atom pusat pada molekul air (H₂O) adalah Oksigen dengan nomor atom 8. Berapakah jumlah elektron valensi pada atom pusat tersebut?",
+                options: [
+                    "A. 2 elektron",
+                    "B. 4 elektron",
+                    "C. 6 elektron",
+                    "D. 8 elektron",
+                    "E. 1 elektron"
+                ],
+                correct: 2
+            },
+            {
+                q: "Berdasarkan analisis struktur Lewis molekul air (H₂O), berapakah jumlah Pasangan Elektron Ikatan (PEI) dan Pasangan Elektron Bebas (PEB) berturut-turut pada atom pusat?",
+                options: [
+                    "A. 1 PEI dan 3 PEB",
+                    "B. 2 PEI dan 2 PEB",
+                    "C. 3 PEI dan 1 PEB",
+                    "D. 4 PEI dan 0 PEB",
+                    "E. 2 PEI dan 1 PEB"
+                ],
+                correct: 1
+            },
+            {
+                q: "Menggunakan teori VSEPR, bagaimanakah notasi tipe bentuk molekul untuk senyawa air (H₂O)?",
+                options: [
+                    "A. AX₃E",
+                    "B. AX₂E",
+                    "C. AX₂E₂",
+                    "D. AX₄",
+                    "E. AX₃E₂"
+                ],
+                correct: 2
+            },
+            {
+                q: "Bagaimanakah bentuk geometri dari molekul air (H₂O) yang tepat berdasarkan susunan domain elektronnya?",
+                options: [
+                    "A. Linier",
+                    "B. Trigonal Planar",
+                    "C. Tetrahedral",
+                    "D. Bentuk V / Bengkok",
+                    "E. Segitiga Piramida"
+                ],
+                correct: 3
+            },
+            {
+                q: "Berapakah perkiraan sudut ikatan H-O-H pada molekul air yang sesungguhnya akibat pengaruh dorongan pasangan elektron bebas (PEB)?",
+                options: [
+                    "A. 180°",
+                    "B. 120°",
+                    "C. 109.5°",
+                    "D. 90°",
+                    "E. 104.5°"
+                ],
+                correct: 4
+            },
+            {
+                q: "Mengapa sudut ikatan pada molekul air (104.5°) lebih kecil dibandingkan sudut tetrahedral ideal (109.5°)?",
+                options: [
+                    "A. Gaya tarik menarik antara hidrogen sangat kuat",
+                    "B. Adanya gaya tolakan yang sangat kuat antar-PEB yang menekan PEI",
+                    "C. Atom oksigen berukuran terlalu kecil",
+                    "D. Pasangan elektron ikatan menarik elektron bebas",
+                    "E. Ikatan kovalen koordinasi terbentuk di antara atom O dan H"
+                ],
+                correct: 1
+            },
+            {
+                q: "Urutan kekuatan gaya tolakan antar-pasangan elektron di sekitar atom pusat yang benar menurut teori VSEPR adalah...",
+                options: [
+                    "A. PEB-PEB > PEB-PEI > PEI-PEI",
+                    "B. PEI-PEI > PEB-PEI > PEB-PEB",
+                    "C. PEB-PEI > PEB-PEB > PEI-PEI",
+                    "D. PEI-PEI > PEB-PEB > PEB-PEI",
+                    "E. PEB-PEB = PEB-PEI = PEI-PEI"
+                ],
+                correct: 0
+            },
+            {
+                q: "Bentuk dasar penyusunan ruang (geometri domain) dari 4 domain elektron di sekitar atom pusat oksigen pada H₂O sebelum dikurangi PEB adalah...",
+                options: [
+                    "A. Linier",
+                    "B. Trigonal Bipiramida",
+                    "C. Oktahedral",
+                    "D. Tetrahedral",
+                    "E. Segitiga Planar"
+                ],
+                correct: 3
+            },
+            {
+                q: "Sifat kepolaran molekul air ditentukan oleh bentuk molekulnya yang tidak simetris (asimetris). Sifat kepolaran molekul air (H₂O) adalah...",
+                options: [
+                    "A. Non-polar",
+                    "B. Sangat Polar",
+                    "C. Semi-polar",
+                    "D. Netral",
+                    "E. Mudah menguap"
+                ],
+                correct: 1
+            },
+            {
+                q: "Jika air (H₂O) memiliki 2 PEB dan berbentuk V, molekul lain manakah di bawah ini yang memiliki kesamaan jumlah PEI dan PEB serta struktur geometri yang serupa dengan H₂O?",
+                options: [
+                    "A. CO₂",
+                    "B. CH₄",
+                    "C. NH₃",
+                    "D. H₂S",
+                    "E. BF₃"
+                ],
+                correct: 3
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let userAnswers = Array(quizQuestions.length).fill(null);
+        let confirmedAnswers = Array(quizQuestions.length).fill(false);
+
+        function loadQuestion() {
+            if (currentQuestionIndex >= quizQuestions.length) {
+                showScore();
+                return;
+            }
+
+            document.getElementById('quiz-container').classList.remove('hidden');
+            document.getElementById('score-screen').classList.add('hidden');
+
+            const currentQ = quizQuestions[currentQuestionIndex];
+            
+            // Progress Tracker
+            document.getElementById('quiz-progress').innerText = `${currentQuestionIndex + 1} / ${quizQuestions.length}`;
+            
+            // Question Text
+            document.getElementById('question-text').innerText = `${currentQuestionIndex + 1}. ${currentQ.q}`;
+            
+            // Options Generator
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+
+            currentQ.options.forEach((option, index) => {
+                const isSelected = userAnswers[currentQuestionIndex] === index;
+                const isConfirmed = confirmedAnswers[currentQuestionIndex];
+                const isCorrect = currentQ.correct === index;
+
+                let optionStyles = "bg-slate-900/60 hover:bg-slate-800 text-slate-300 border-slate-800/80";
+                
+                if (isSelected && !isConfirmed) {
+                    optionStyles = "bg-blue-600/20 text-blue-300 border-blue-500/80 shadow-md shadow-blue-950/40";
+                } else if (isConfirmed) {
+                    if (isCorrect) {
+                        optionStyles = "bg-emerald-600/20 text-emerald-300 border-emerald-500 shadow-sm shadow-emerald-950/20";
+                    } else if (isSelected) {
+                        optionStyles = "bg-red-600/20 text-red-300 border-red-500 shadow-sm shadow-red-950/20";
+                    } else {
+                        optionStyles = "opacity-40 bg-slate-900/40 text-slate-500 border-slate-900";
+                    }
+                }
+
+                const button = document.createElement('button');
+                button.className = `w-full text-left p-2.5 sm:p-3 rounded-xl border text-xs font-semibold transition-all flex items-center justify-between ${optionStyles}`;
+                button.disabled = isConfirmed;
+                button.onclick = () => selectOption(index);
+
+                let iconHtml = '';
+                if (isConfirmed) {
+                    if (isCorrect) {
+                        iconHtml = '<span class="text-[10px] text-emerald-400 bg-emerald-500/10 py-0.5 px-2 rounded-full border border-emerald-500/20"><i class="fa-solid fa-check"></i> Benar</span>';
+                    } else if (isSelected) {
+                        iconHtml = '<span class="text-[10px] text-red-400 bg-red-500/10 py-0.5 px-2 rounded-full border border-red-500/20"><i class="fa-solid fa-xmark"></i> Salah</span>';
+                    }
+                } else if (isSelected) {
+                    iconHtml = '<span class="text-blue-400"><i class="fa-solid fa-circle-dot animate-pulse text-xs"></i></span>';
+                }
+
+                button.innerHTML = `<span>${option}</span> ${iconHtml}`;
+                optionsContainer.appendChild(button);
+            });
+
+            // Set button state
+            document.getElementById('btn-prev').disabled = currentQuestionIndex === 0;
+            
+            const isAnswered = userAnswers[currentQuestionIndex] !== null;
+            const isConfirmed = confirmedAnswers[currentQuestionIndex];
+
+            if (isConfirmed) {
+                document.getElementById('btn-submit-answer').classList.add('hidden');
+                document.getElementById('btn-next').className = "px-4 py-1.5 text-xs font-bold rounded-lg bg-blue-600 hover:bg-blue-500 text-white transition-all";
+                document.getElementById('btn-next').innerText = currentQuestionIndex === quizQuestions.length - 1 ? "Hasil Akhir" : "Lanjut";
+                document.getElementById('btn-next').disabled = false;
+            } else {
+                document.getElementById('btn-submit-answer').classList.remove('hidden');
+                document.getElementById('btn-submit-answer').disabled = !isAnswered;
+                document.getElementById('btn-submit-answer').className = isAnswered 
+                    ? "px-4 py-1.5 text-xs font-bold rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white transition-all shadow-md cursor-pointer"
+                    : "px-4 py-1.5 text-xs font-bold rounded-lg bg-slate-800 text-slate-500 cursor-not-allowed border border-slate-700/50";
+                
+                document.getElementById('btn-next').className = "px-4 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 text-slate-500 cursor-not-allowed";
+                document.getElementById('btn-next').disabled = true;
+            }
+        }
+
+        function selectOption(index) {
+            if (confirmedAnswers[currentQuestionIndex]) return;
+            userAnswers[currentQuestionIndex] = index;
+            loadQuestion();
+        }
+
+        function checkAnswer() {
+            if (userAnswers[currentQuestionIndex] === null) return;
+            confirmedAnswers[currentQuestionIndex] = true;
+            loadQuestion();
+        }
+
+        function nextQuestion() {
+            if (!confirmedAnswers[currentQuestionIndex]) return;
+            if (currentQuestionIndex < quizQuestions.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion();
+            } else {
+                showScore();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion();
+            }
+        }
+
+        function showScore() {
+            document.getElementById('quiz-container').classList.add('hidden');
+            document.getElementById('score-screen').classList.remove('hidden');
+            
+            let correctNum = 0;
+            userAnswers.forEach((ans, index) => {
+                if (ans === quizQuestions[index].correct) {
+                    correctNum++;
+                }
+            });
+
+            const totalScore = Math.round((correctNum / quizQuestions.length) * 100);
+            document.getElementById('final-score').innerText = `${totalScore} / 100`;
+            document.getElementById('correct-count').innerText = correctNum;
+            document.getElementById('wrong-count').innerText = quizQuestions.length - correctNum;
+        }
+
+        function resetQuiz() {
+            currentQuestionIndex = 0;
+            userAnswers = Array(quizQuestions.length).fill(null);
+            confirmedAnswers = Array(quizQuestions.length).fill(false);
+            loadQuestion();
+        }
+
+        // Run application on load
+        window.onload = function() {
+            loadQuestion();
+        }
+    </script>
+</body>
+</html>
